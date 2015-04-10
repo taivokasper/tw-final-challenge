@@ -9,5 +9,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/',
             templateUrl: 'views/index.html',
             controller: 'IndexCtrl'
+        })
+        .state('investment', {
+            url: '/investment',
+            templateUrl: 'views/investment.html',
+            controller: 'InvestmentCtrl'
         });
 });

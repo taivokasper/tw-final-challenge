@@ -1,0 +1,21 @@
+/***************************** MOBILE FIRST *****************************/
+.nav { width: 20%; height: 200px; }
+.main { width: 80%; }
+.item { width: 50%; } /* 2 columns */
+
+
+
+
+
+/***************************** TABLETS *****************************/
+@media (min-width: 40em) {
+  .item { width: 25%; } /* 4 columns */
+}
+
+
+
+
+/***************************** DESKTOPS *****************************/
+@media (min-width: 60em) {
+  .item { width: 20%; } /* 5 columns */
+}

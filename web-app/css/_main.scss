@@ -9,7 +9,7 @@
 
 /***************************** TABLETS *****************************/
 @media (min-width: 40em) {
-  .item { width: 25%; } /* 4 columns */
+	.item { width: 25%; } /* 4 columns */
 }
 
 
@@ -17,5 +17,9 @@
 
 /***************************** DESKTOPS *****************************/
 @media (min-width: 60em) {
-  .item { width: 20%; } /* 5 columns */
+	.main-wrap {
+		width: 1280px;
+		margin: 0 auto;
+	}
+	.item { width: 20%; } /* 5 columns */
 }

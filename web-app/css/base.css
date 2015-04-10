@@ -248,6 +248,10 @@ textarea {
   /* 4 columns */ }
 /***************************** DESKTOPS *****************************/
 @media (min-width: 60em) {
+  .main-wrap {
+    width: 1280px;
+    margin: 0 auto; }
+
   .item {
     width: 20%; }
 

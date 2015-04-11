@@ -5,13 +5,41 @@
   box-sizing: border-box;
 }
 
+body {
+	font-family: $font-lato;
+	font-weight: 300;
+	color: $primary-dark;
+}
+
+a {
+	text-decoration: none;
+}
+a:link, a:visited {
+	color: $logo-blue;
+}
+a:hover, a:active {
+	color: $dark-blue;
+}
 
 .header {
+	padding: 3em 0 2em 0;
+	position: relative;
+
+	.logo, .header-login {
+		width: 50%;
+	}
+
 	.header-login {
+		text-align: right;
+		position: absolute;
+		top: 50%;
+		right: 10%;
 		button {
-			padding: 10px 15px;
+			padding: 10px 30px;
 		    margin: 20px auto;
 		    color: #000;
+		    font-weight: 700;
+		    text-transform: uppercase;
 		    background-color: $white;
 		    border: 1px solid #000;
 			-webkit-border-radius: 10px;
@@ -39,8 +67,12 @@
 	.call-right {
 		width: 40%;
 		padding: 2em;
+		margin: 0 auto;
+		text-align: center;
 
 		.box {
+			margin: 0 auto;
+			text-align: center;
 			background: $other-blue;
 			-webkit-border-radius: 10px;
 			-moz-border-radius: 10px;
@@ -48,18 +80,17 @@
 			width: 100%;
 			max-width: 260px;
 			padding: 2em;
-			margin: 0em 2em 0em 0em;
 			
 			h1,h2,h3{
 				margin:0;
 				padding:0;
 				color: $white;
-			}
-			h2 {
 				font-weight: 300;
 			}
+			h2 {
+			}
 			h3 {
-				text-align: right;
+				text-align: center;
 				font-size: 1em;
 			}
 			h1 {
@@ -105,7 +136,6 @@
 		.footnote {
 			color: white;
 			font-size: 75%;
-			padding-left: 2em;
 		}
 	}
 }
@@ -218,6 +248,89 @@
 	}
 }
 
+.main-menu, .main-investment {
+	padding-top: 2em;
+}
+
+.main-menu {
+	width: 20%;
+
+	ul {
+		list-style: none;
+
+		a {
+			color: rgb(0,0,0);
+			
+			&.current {
+				color: $logo-blue;
+			}
+
+			&:hover, &:active {
+				color: $logo-blue;
+			}
+
+			li:before {
+				content: "\00BB";
+				padding-right: 1em;
+			}
+		}
+		
+	}
+}
+.main-investment {
+	width: 80%;
+
+	.inv-box {
+		border: 1px solid $primary-light;
+		position: relative;
+		padding: 2em;
+		margin: 20px;
+		width: 100%;
+		font-size: 1.7em;
+
+		h1 {
+			position: absolute;
+			line-height: 40px;
+			font-size: 1.5em;
+			top: -20px;
+			left: -5px;
+			margin: 0;
+			padding: 0 20px;
+			font-weight: 300;
+			background: $white;
+		}
+		.your-account{
+			color: $primary-light;
+		}
+		
+		.add-more-box {
+			padding-top: 2em;
+		}
+		input.add-more-input, button.add-more-button {
+			border: 1px solid $primary-light;
+			outline: 0;
+			width: 150px;
+			padding: 5px 10px;
+			font-weight: 100;
+			text-align: center;
+			font-size: 0.9em;
+		}
+		input.add-more-input {
+			background: $white;
+			color: $primary-light;
+		}
+		button.add-more-button {
+			background: $logo-blue;
+			color: $dark-blue;
+
+			&:hover {
+				background: $dark-blue;
+				color: $white;
+			}
+		}
+	}
+}
+
 .footer-container {
 	margin: 0 auto;
 	text-align: center;
@@ -228,13 +341,31 @@
 		color: rgb(0,0,0);
 	}
 	.footer {
-		font-size: 2em;
+		font-size: 3em;
 		padding: 1em 0;
 	}
 	.copyright {
 		font-size: 1em;
 		padding-bottom: 2em;
 	}
+}
+
+
+.w-100 {
+	width: 100%;
+}
+.w-16 {
+	width: 70/4*1%;
+	text-align: center;
+}
+.w-30 {
+	width: 30%;
+}
+.w-70 {
+	width: 70%;
+}
+.col-blue {
+	color: $logo-blue;
 }
 
 
@@ -252,14 +383,4 @@
 		max-width: 1280px;
 		margin: 0 auto;
 	}
-	.header {
-		padding: 3em 0 1em 0;
-		.logo, .header-login {
-			width: 50%;
-		}
-		.header-login {
-			text-align: right;
-		}
-	}
-	.item { width: 20%; } /* 5 columns */
 }

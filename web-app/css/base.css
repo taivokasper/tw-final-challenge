@@ -236,20 +236,46 @@ textarea {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-.header .header-login button {
-  padding: 10px 15px;
-  margin: 20px auto;
-  color: #000;
-  background-color: white;
-  border: 1px solid #000;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  cursor: pointer; }
-  .header .header-login button:hover {
-    background: #00ccff;
-    color: white;
-    border: 1px solid #00659a; }
+body {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: #0a0a0a; }
+
+a {
+  text-decoration: none; }
+
+a:link, a:visited {
+  color: #00ccff; }
+
+a:hover, a:active {
+  color: #00659a; }
+
+.header {
+  padding: 3em 0 2em 0;
+  position: relative; }
+  .header .logo, .header .header-login {
+    width: 50%; }
+  .header .header-login {
+    text-align: right;
+    position: absolute;
+    top: 50%;
+    right: 10%; }
+    .header .header-login button {
+      padding: 10px 30px;
+      margin: 20px auto;
+      color: #000;
+      font-weight: 700;
+      text-transform: uppercase;
+      background-color: white;
+      border: 1px solid #000;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      cursor: pointer; }
+      .header .header-login button:hover {
+        background: #00ccff;
+        color: white;
+        border: 1px solid #00659a; }
 
 .call-to-action {
   background: url(../images/landing_background.png);
@@ -259,24 +285,26 @@ textarea {
     width: 60%; }
   .call-to-action .call-right {
     width: 40%;
-    padding: 2em; }
+    padding: 2em;
+    margin: 0 auto;
+    text-align: center; }
     .call-to-action .call-right .box {
+      margin: 0 auto;
+      text-align: center;
       background: #20bae1;
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
       border-radius: 10px;
       width: 100%;
       max-width: 260px;
-      padding: 2em;
-      margin: 0em 2em 0em 0em; }
+      padding: 2em; }
       .call-to-action .call-right .box h1, .call-to-action .call-right .box h2, .call-to-action .call-right .box h3 {
         margin: 0;
         padding: 0;
-        color: white; }
-      .call-to-action .call-right .box h2 {
+        color: white;
         font-weight: 300; }
       .call-to-action .call-right .box h3 {
-        text-align: right;
+        text-align: center;
         font-size: 1em; }
       .call-to-action .call-right .box h1 {
         text-align: center; }
@@ -309,8 +337,7 @@ textarea {
           cursor: pointer; }
     .call-to-action .call-right .footnote {
       color: white;
-      font-size: 75%;
-      padding-left: 2em; }
+      font-size: 75%; }
 
 .landing-bottom {
   background: url(../images/landing_bottom.png);
@@ -396,6 +423,64 @@ textarea {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
   border-radius: 100%; }
 
+.main-menu, .main-investment {
+  padding-top: 2em; }
+
+.main-menu {
+  width: 20%; }
+  .main-menu ul {
+    list-style: none; }
+    .main-menu ul a {
+      color: black; }
+      .main-menu ul a.current {
+        color: #00ccff; }
+      .main-menu ul a:hover, .main-menu ul a:active {
+        color: #00ccff; }
+      .main-menu ul a li:before {
+        content: "\00BB";
+        padding-right: 1em; }
+
+.main-investment {
+  width: 80%; }
+  .main-investment .inv-box {
+    border: 1px solid #d1d1d1;
+    position: relative;
+    padding: 2em;
+    margin: 20px;
+    width: 100%;
+    font-size: 1.7em; }
+    .main-investment .inv-box h1 {
+      position: absolute;
+      line-height: 40px;
+      font-size: 1.5em;
+      top: -20px;
+      left: -5px;
+      margin: 0;
+      padding: 0 20px;
+      font-weight: 300;
+      background: white; }
+    .main-investment .inv-box .your-account {
+      color: #d1d1d1; }
+    .main-investment .inv-box .add-more-box {
+      padding-top: 2em; }
+    .main-investment .inv-box input.add-more-input, .main-investment .inv-box button.add-more-button {
+      border: 1px solid #d1d1d1;
+      outline: 0;
+      width: 150px;
+      padding: 5px 10px;
+      font-weight: 100;
+      text-align: center;
+      font-size: 0.9em; }
+    .main-investment .inv-box input.add-more-input {
+      background: white;
+      color: #d1d1d1; }
+    .main-investment .inv-box button.add-more-button {
+      background: #00ccff;
+      color: #00659a; }
+      .main-investment .inv-box button.add-more-button:hover {
+        background: #00659a;
+        color: white; }
+
 .footer-container {
   margin: 0 auto;
   text-align: center; }
@@ -404,11 +489,27 @@ textarea {
     font-weight: 100;
     color: black; }
   .footer-container .footer {
-    font-size: 2em;
+    font-size: 3em;
     padding: 1em 0; }
   .footer-container .copyright {
     font-size: 1em;
     padding-bottom: 2em; }
+
+.w-100 {
+  width: 100%; }
+
+.w-16 {
+  width: 17.5%;
+  text-align: center; }
+
+.w-30 {
+  width: 30%; }
+
+.w-70 {
+  width: 70%; }
+
+.col-blue {
+  color: #00ccff; }
 
 /***************************** TABLETS *****************************/
 @media (min-width: 40em) {
@@ -420,16 +521,4 @@ textarea {
 @media (min-width: 60em) {
   .main-wrap {
     max-width: 1280px;
-    margin: 0 auto; }
-
-  .header {
-    padding: 3em 0 1em 0; }
-    .header .logo, .header .header-login {
-      width: 50%; }
-    .header .header-login {
-      text-align: right; }
-
-  .item {
-    width: 20%; }
-
-  /* 5 columns */ }
+    margin: 0 auto; } }

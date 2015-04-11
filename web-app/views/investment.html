@@ -1,13 +1,36 @@
 <div class="main-wrap block-group">
     <div class="main-menu block">
 		<ul>
-			<li>> About</li>
-			<li>> Investments</li>
+			<a href="/about" class=""><li>About</li></a>
+			<a href="/investment" class="current"><li>Investments</li></a>
 		</ul>
     </div>
     <div class="main-investment block-group">
-    	<div class="block">
-    		Your investments
+    	<div class="inv-box block-group">
+    		<h1>Your investments</h1>
+    		<div class="w-100 block-group">
+	    		<div class="block w-30">&nbsp;</div>
+	    		<div class="block w-16">Invested</div>
+	    		<div class="block w-16">Profit</div>
+	    		<div class="block w-16">Total</div>
+	    		<div class="block w-16">&nbsp;</div>
+	    	</div>
+    		<div class="w-100 block-group">
+	    		<div class="block w-30 your-account">Your account</div>
+	    		<div class="block w-16 col-blue">200</div>
+	    		<div class="block w-16 col-blue">1.58</div>
+	    		<div class="block w-16 col-blue">201.58</div>
+	    		<div class="block w-16">&nbsp;</div>
+	    	</div>
+	    	<div class="w-100 add-more-box block-group">
+	    		<div class="block w-30">Invest more</div>
+	    		<div class="block w-70">
+	    			<form>
+						<input class="add-more-input" placeholder="100" />
+						<button class="add-more-button">Add</button>
+					</form>
+	    		</div>
+	    	</div>
     	</div>
     	<div class="block">
     		Your stock graph

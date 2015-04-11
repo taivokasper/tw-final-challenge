@@ -7,8 +7,14 @@ class UrlMappings {
             }
         }
 
+//        "/rest/invest/$action?/$id?(.$format)?"{
+//            constraints {
+//                // apply constraints here
+//            }
+//        }
+
         "/"(uri:"/index.html")
-        "/users"(resources:'user')
+        "/investments"(resources:'investments')
         "500"(view:'/error')
 	}
 }

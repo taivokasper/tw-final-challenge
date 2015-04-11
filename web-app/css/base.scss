@@ -1,12 +1,17 @@
-/* base.scss */
-
-@import 'bp';
-@import 'main';
-
 /* COLOURS */
 $primary-light: rgb(100,100,100);
 $primary-dark: rgb(10,10,10);
+$logo-blue: rgb(0,204,255);
+$logo-pink: rgb(255,0,132);
+$other-blue: rgb(32,186,225);
+$dark-blue: rgb(0,101,154);
+$white: rgb(255,255,255);
 
 /* FONT STACK */
 $font-serif: Georgia, serif;
 $font-sans: Helvetica, Arial, sans-serif;
+$font-lato: 'Lato', Helvetica, Arial, sans-serif;
+
+/* base.scss */
+@import 'bp';
+@import 'main';

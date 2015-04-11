@@ -1,3 +1,5 @@
+/* COLOURS */
+/* FONT STACK */
 /* base.scss */
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 /*
@@ -240,6 +242,83 @@ textarea {
   width: 50%; }
 
 /* 2 columns */
+.header .header-login button {
+  padding: 10px 15px;
+  margin: 20px auto;
+  color: #000;
+  background-color: white;
+  border: 1px solid #000;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  cursor: pointer; }
+  .header .header-login button:hover {
+    background: #00ccff;
+    color: #00659a;
+    border: 1px solid #00659a; }
+
+.call-to-action {
+  background: url(../images/landing_background.png);
+  height: 371px; }
+  .call-to-action .call-left {
+    width: 60%; }
+  .call-to-action .call-right {
+    width: 40%;
+    position: relative; }
+    .call-to-action .call-right .box {
+      background: #20bae1;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      width: 200px;
+      padding: 2em;
+      margin-top: 2em;
+      margin-left: 6em; }
+      .call-to-action .call-right .box h1, .call-to-action .call-right .box h2, .call-to-action .call-right .box h3 {
+        margin: 0;
+        padding: 0;
+        color: white; }
+      .call-to-action .call-right .box h2 {
+        font-weight: 300; }
+      .call-to-action .call-right .box h3 {
+        text-align: right;
+        font-size: 1em; }
+      .call-to-action .call-right .box h1 {
+        text-align: center; }
+      .call-to-action .call-right .box form {
+        position: relative;
+        color: #00659a;
+        font-size: 1em;
+        font-family: "Lato", Helvetica, Arial, sans-serif;
+        font-weight: 300; }
+        .call-to-action .call-right .box form input, .call-to-action .call-right .box form button {
+          margin: 0 auto;
+          text-align: center;
+          padding: 10px 15px; }
+        .call-to-action .call-right .box form input.invest-money {
+          color: #00659a;
+          font-family: "Lato", Helvetica, Arial, sans-serif;
+          font-weight: 300;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          background: white;
+          border: none;
+          outline: none; }
+        .call-to-action .call-right .box form button.start-now {
+          padding: 10px 15px;
+          color: white;
+          background-color: #00ccff;
+          border: none;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          cursor: pointer; }
+
+.landing-bottom {
+  background: url(../images/landing_bottom.png);
+  height: 1280px; }
+
 /***************************** TABLETS *****************************/
 @media (min-width: 40em) {
   .item {
@@ -252,9 +331,14 @@ textarea {
     width: 1280px;
     margin: 0 auto; }
 
+  .header {
+    padding: 3em 0 1em 0; }
+    .header .logo, .header .header-login {
+      width: 50%; }
+    .header .header-login {
+      text-align: right; }
+
   .item {
     width: 20%; }
 
   /* 5 columns */ }
-/* COLOURS */
-/* FONT STACK */

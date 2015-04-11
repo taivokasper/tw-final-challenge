@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngResource', 'ui.router']);
+var app = angular.module('app', ['ngResource', 'ui.router', 'http-auth-interceptor']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 

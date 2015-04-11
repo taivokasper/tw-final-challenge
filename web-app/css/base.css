@@ -262,7 +262,6 @@ a:hover, a:active {
     right: 10%; }
     .header .header-login button {
       padding: 10px 30px;
-      margin: 20px auto;
       color: #000;
       font-weight: 700;
       text-transform: uppercase;
@@ -276,6 +275,17 @@ a:hover, a:active {
         background: #00ccff;
         color: white;
         border: 1px solid #00659a; }
+    .header .header-login .logged-in {
+      color: #d1d1d1;
+      font-size: 0.9em; }
+      .header .header-login .logged-in a.profile {
+        font-size: 1em;
+        font-weight: 700; }
+        .header .header-login .logged-in a.profile:after {
+          content: "\25bc";
+          display: inline-block;
+          width: 14px;
+          height: 12px; }
 
 .call-to-action {
   background: url(../images/landing_background.png);

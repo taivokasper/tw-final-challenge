@@ -36,7 +36,6 @@ a:hover, a:active {
 		right: 10%;
 		button {
 			padding: 10px 30px;
-		    margin: 20px auto;
 		    color: #000;
 		    font-weight: 700;
 		    text-transform: uppercase;
@@ -51,6 +50,22 @@ a:hover, a:active {
 				background: $logo-blue;
 				color: $white;
 				border: 1px solid $dark-blue;
+			}
+		}
+		.logged-in {
+			color: $primary-light;
+			font-size: 0.9em;
+
+			a.profile {
+				font-size: 1em;
+				font-weight: 700;
+
+				&:after {
+				    content: "\25bc";
+				    display: inline-block;
+				    width: 14px;
+				    height: 12px;
+				}
 			}
 		}
 	}

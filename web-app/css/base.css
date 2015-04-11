@@ -459,7 +459,7 @@ a:hover, a:active {
         content: "\00BB";
         padding-right: 1em; }
 
-.main.investment, .main-about {
+.main-investment, .main-about {
   width: 80%; }
 
 .main-investment .inv-box {

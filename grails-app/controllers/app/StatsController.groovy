@@ -5,7 +5,7 @@ class StatsController {
     def statsService
 
     def stockStats() {
-        render statsService.getForStock(params.long("id")) as JSON
+        render statsService.getForStock(params.get("id")) as JSON
     }
 
     def graphStats() {

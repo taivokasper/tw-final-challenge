@@ -137,7 +137,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/views/**':                      ['permitAll'],
 	'/favicon.ico':                   ['permitAll'],
     '/admin/**':                      ['permitAll'],
-    '/investments/**':                ['permitAll']
+    '/**':                            ['permitAll']
 ]
 grails.plugin.springsecurity.rememberMe.persistent = false
 grails.plugin.springsecurity.rest.login.useJsonCredentials = true

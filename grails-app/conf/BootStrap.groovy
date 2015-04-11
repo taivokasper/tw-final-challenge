@@ -13,7 +13,7 @@ class BootStrap {
     def init = { servletContext ->
         registerMarshallers()
 
-        User user = new User(username: "test", password: "test")
+        User user = new User(username: "test@test.ee", password: "test")
         user.save()
 
         Role roleUser = new Role(authority: "ROLE_USER")

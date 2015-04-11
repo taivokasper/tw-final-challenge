@@ -1,5 +1,15 @@
 var app = angular.module('app');
 
+app.controller('RootCtrl', function ($scope, UserService) {
+    $scope.isAuthencticated = function () {
+        return !!getLocalToken();
+    };
+
+    $scope.getUser = function () {
+        return UserService.getAuthenticatedUser();
+    };
+});
+
 app.controller('IndexCtrl', function ($scope) {
 
 });
@@ -21,11 +31,12 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, authService) {
         $scope.logIn = function() {
             console.log('logIn called');
 
-            $http.post('api/login', { username: $scope.authData.username, password: $scope.authData.password },
+            $http.post('/auth/login', { username: $scope.authData.username, password: $scope.authData.password },
                     getAuthenticateHttpConfig).
                 success(function(data) {
-                    console.log('authentication token: ' + data.token);
-                    localStorage["authToken"] = data.token;
+                    console.log('authentication token: ' + data.access_token);
+                    localStorage["authToken"] = data.access_token;
+                    localStorage["username"] = data.username;
                     authService.loginConfirmed({}, function(config) {
                         if(!config.headers["X-Auth-Token"]) {
                             console.log('X-Auth-Token not on original request; adding it');
@@ -48,7 +59,7 @@ app.controller('logoutCtrl', function ($scope, $http, $location) {
         $scope.logOut = function() {
             console.log('logOut called');
 
-            $http.post('api/logout', {}, getHttpConfig()).
+            $http.post('/auth/logout', {}, getHttpConfig()).
                 success(function() {
                     console.log('logout success');
                     localStorage.clear();

@@ -42,16 +42,21 @@
 </head>
 <body ng-app="app">
 
-<div class="show-login">
+<div class="show-login" ng-controller="RootCtrl">
 	
 	<div class="main-wrap header block-group">
 	    <div class="logo block">
 			<a ui-sref="index"><img src="images/logo.png" alt="InvestUs" width="297" /></a>
 	    </div>
-	    <div class="header-login block">
-			<a ui-sref="signup" class="sign-up-button"><button>Sign up</button></a>
-			 or <a ui-sref="login" class="log-in-link">log in</a>
-			<!--div class="logged-in">Logged in as <a href="#" class="profile">Kristjan-Julius Laak</a></div-->
+	    <div class="header-login block" ng-switch="isAuthencticated()">
+            <span ng-switch-when="false">
+                <a ui-sref="signup" class="sign-up-button"><button>Sign up</button></a>
+                 or <a ui-sref="login" class="log-in-link">log in</a>
+            </span>
+			<div ng-switch-default class="logged-in">
+                Logged in as <a href="#" class="profile">{{getUser()}}</a>
+                <span ng-controller="logoutCtrl" ng-click="logOut()">Log out</span>
+            </div>
 	    </div>
 	</div>
 

@@ -147,3 +147,6 @@ grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName = 'app
 grails.plugin.springsecurity.rest.token.storage.gorm.tokenValuePropertyName = 'token'
 grails.plugin.springsecurity.rest.token.storage.gorm.usernamePropertyName = 'username'
 
+grails.plugin.springsecurity.rest.login.endpointUrl = "/auth/login"
+grails.plugin.springsecurity.rest.logout.endpointUrl = "/auth/logout"
+grails.plugin.springsecurity.rest.token.validation.endpointUrl = "/auth/validate"

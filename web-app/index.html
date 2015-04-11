@@ -13,7 +13,7 @@
     <title>Grails & AngularJs base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!--link rel="stylesheet" href="css/bootstrap.min.css"-->
     <!--link rel="stylesheet" href="css/bootstrap-theme.min.css"-->
     <link rel="stylesheet" href="css/normalize.css">
@@ -40,11 +40,21 @@
 <body ng-app="app">
 
 <div class="">
+	
+	<div class="main-wrap header block-group">
+	    <div class="logo block">
+			<a href="http://localhost:8080/#/"><img src="images/logo.png" alt="InvestUs" /></a>
+	    </div>
+	    <div class="header-login block">
+			<a href="#/login"><button>Log in</button></a>
+	    </div>
+	</div>
 
 	<div ui-view></div>
 
 	<div class="footer-container block-group">
-	    <div class="footer block">Footer</div>
+	    <div class="footer block">Make your money grow safely</div>
+	    <div class="copyright block">InvestUs Inc. &copy; 2015 </div>
 	</div>
 
 </div>

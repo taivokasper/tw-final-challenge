@@ -67,17 +67,49 @@ a:hover, a:active {
 		// If user is logged in
 		.logged-in {
 			color: $primary-light;
+			position: relative;
 			font-size: 0.9em;
 
 			a.profile {
-				font-size: 1em;
+				font-size: 15px;
 				font-weight: 700;
+				line-height: 20px;
 
 				&:after {
 				    content: "\25bc";
 				    display: inline-block;
 				    width: 14px;
-				    height: 12px;
+				    height: 20px;
+				}
+
+				ul {
+					position: absolute;
+					bottom: -55px;
+					height: 40px;
+					right: 0;
+					display: none;
+					z-index: 999;
+					-webkit-border-radius: 5px;
+					-moz-border-radius: 5px;
+					border-radius: 5px;
+					background: $white;
+					list-style: none;
+
+					li {
+						line-height: 40px;
+						border: $primary-light;
+						color: $dark-blue;
+						font-size: 1em;
+						font-weight: 300;
+					}
+				}
+
+				&:hover ul, &:active ul {
+					display: block;
+
+					li:hover {
+						color: $primary-light;
+					}
 				}
 			}
 		}
@@ -382,10 +414,12 @@ a:hover, a:active {
 	}
 	.footer {
 		font-size: 3em;
+		padding: 1em 0;
+		font-weight: 300;
 	}
 	.copyright {
 		font-size: 1em;
-		padding-bottom: 2em;
+		padding: 2em 0;
 	}
 }
 

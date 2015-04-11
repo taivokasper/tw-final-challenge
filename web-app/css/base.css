@@ -283,15 +283,39 @@ a:hover, a:active {
       font-weight: 700; }
     .header .header-login .logged-in {
       color: #d1d1d1;
+      position: relative;
       font-size: 0.9em; }
       .header .header-login .logged-in a.profile {
-        font-size: 1em;
-        font-weight: 700; }
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 20px; }
         .header .header-login .logged-in a.profile:after {
           content: "\25bc";
           display: inline-block;
           width: 14px;
-          height: 12px; }
+          height: 20px; }
+        .header .header-login .logged-in a.profile ul {
+          position: absolute;
+          bottom: -55px;
+          height: 40px;
+          right: 0;
+          display: none;
+          z-index: 999;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          background: white;
+          list-style: none; }
+          .header .header-login .logged-in a.profile ul li {
+            line-height: 40px;
+            border: #d1d1d1;
+            color: #00659a;
+            font-size: 1em;
+            font-weight: 300; }
+        .header .header-login .logged-in a.profile:hover ul, .header .header-login .logged-in a.profile:active ul {
+          display: block; }
+          .header .header-login .logged-in a.profile:hover ul li:hover, .header .header-login .logged-in a.profile:active ul li:hover {
+            color: #d1d1d1; }
 
 .call-to-action {
   background: url(../images/landing_background.png);
@@ -514,10 +538,12 @@ a:hover, a:active {
     font-weight: 100;
     color: black; }
   .footer-container .footer {
-    font-size: 3em; }
+    font-size: 3em;
+    padding: 1em 0;
+    font-weight: 300; }
   .footer-container .copyright {
     font-size: 1em;
-    padding-bottom: 2em; }
+    padding: 2em 0; }
 
 .w-100 {
   width: 100%; }

@@ -55,7 +55,11 @@
                  or <a ui-sref="login" class="log-in-link">log in</a>
             </span>
 			<div ng-switch-default class="logged-in">
-                Logged in as <a href="#" class="profile">{{getUser()}}</a>
+                Logged in as <a href="#" class="profile">{{getUser()}}
+                <ul>
+                    <li>Log out</li>
+                </ul>
+                </a>
             </div>
 	    </div>
 	</div>
@@ -64,7 +68,7 @@
 
 	<div class="footer-container block-group">
 	    <div class="footer block">
-        <img src="images/logo_footer.png" alt="logo" /><br />
+        <img src="images/logo_bottom.png" alt="logo" /><br />
         Make your money grow safely</div>
 	    <div class="copyright block">InvestUs Inc. &copy; 2015 </div>
 	</div>

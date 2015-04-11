@@ -6,13 +6,14 @@
 			<div class="call-right block">
 				<div class="box" ng-controller="CallToActionCtrl">
 
-					<h2>Every month you invest</h2>
+					<h2>Invest monthly</h2>
 					<form class="ss">
-						<input class="invest-money" ng-model="monthlyInvestment" />for 5 years
+						<input class="invest-money" ng-model="monthlyInvestment" />
 					</form>
+					for 5 years
 					<h3> and gain</h3>
 					<h1>{{investUsCalcResults}}€</h1>
-					<form>
+					<form class="ss">
 						<button class="start-now" ng-click="startNow()">Start now</button>
 					</form>
 					You could save an average of {{calcResults}}€ vs your bank. <a href="/">+How?</a>
@@ -30,7 +31,7 @@
 	</div>
 </div>
 <div class="main-wrap block-group">
-	<div class=" block" style="text-align: center; margin-top: 1em;">
+	<div class=" block" style="text-align: center; margin-top: 1em;" ng-controller="CallToActionCtrl">
 		<form class="ss">
 			<button class="start-now" style="width: 180px;" ng-click="startNow()">Invest now</button>
 		</form>

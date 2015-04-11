@@ -325,7 +325,7 @@ a:hover, a:active {
     width: 60%; }
   .call-to-action .call-right {
     width: 40%;
-    padding: 2em;
+    padding: 0 2em 2em 2em;
     margin: 0 auto;
     text-align: center; }
     .call-to-action .call-right .box {
@@ -337,7 +337,8 @@ a:hover, a:active {
       border-radius: 10px;
       width: 100%;
       max-width: 260px;
-      padding: 2em; }
+      padding: 2em;
+      color: #00659a; }
       .call-to-action .call-right .box h1, .call-to-action .call-right .box h2, .call-to-action .call-right .box h3 {
         margin: 0;
         padding: 0;

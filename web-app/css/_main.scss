@@ -126,7 +126,7 @@ a:hover, a:active {
 	}
 	.call-right {
 		width: 40%;
-		padding: 2em;
+		padding: 0 2em 2em 2em;
 		margin: 0 auto;
 		text-align: center;
 
@@ -140,6 +140,7 @@ a:hover, a:active {
 			width: 100%;
 			max-width: 260px;
 			padding: 2em;
+			color: $dark-blue;
 			
 			h1,h2,h3{
 				margin:0;

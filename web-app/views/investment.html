@@ -17,42 +17,46 @@
 	    	</div>
     		<div class="w-100 block-group">
 	    		<div class="block w-30 your-account">Your account</div>
-	    		<div class="block w-16 col-blue">200</div>
-	    		<div class="block w-16 col-blue">1.58</div>
-	    		<div class="block w-16 col-blue">201.58</div>
+	    		<div class="block w-16 col-blue">{{investedSum.sum}}</div>
+	    		<div class="block w-16 col-blue">0</div>
+	    		<div class="block w-16 col-blue">{{investedSum.sum}}</div>
 	    		<div class="block w-16">&nbsp;</div>
 	    	</div>
 	    	<div class="w-100 add-more-box block-group">
 	    		<div class="block w-30">&nbsp;</div>
 	    		<div class="block w-70">
 	    			<form>
-						<input class="add-more-input" onfocus="this.placeholder = ''" onblur="this.placeholder = '100'" />
-						<button class="add-more-button">Invest</button>
-						<button class="add-more-button">Sell stock</button>
+						<input class="add-more-input" ng-model="amount" />
+						<button class="add-more-button" ng-click="showInvest()">Invest</button>
+						<button class="add-more-button" ng-click="showSell()">Sell stock</button>
 					</form>
 	    		</div>
 	    	</div>
-	    	<!-- FOR INVEST -->
-	    	<div class="w-100 block-group">
-	    		<div class="block">
-	    			<p>Please transfer 0 EUR to</p>
-	    			<div class="send-to">
-					<strong>Receiver</strong> InvestUs Inc. <br />
-					<strong>Reference number</strong> 123456789<br />
-					<strong>IBAN</strong> EE691010010638748015<br />
-	    			</div>
-	    		</div>
-	    	</div>
-	    	<!-- FOR SELL -->
-	    	<div class="w-100 block-group">
-	    		<div class="block">
-	    			<p>0 EUR are being transfered to</p>
-	    			<div class="send-to">
-					<strong>Receiver</strong> Name Surname <br />
-					<strong>IBAN</strong> EE691010010638748015<br />
-	    			</div>
-	    		</div>
-	    	</div>
+
+			<div ng-switch="state">
+				<div class="w-100 block-group" ng-switch-when="invest">
+					<div class="block">
+						<p>Please transfer {{amount}} EUR to</p>
+						<div class="send-to">
+							<strong>Receiver</strong> InvestUs Inc. <br />
+							<strong>Reference number</strong> 123456789<br />
+							<strong>IBAN</strong> EE691010010638748015<br />
+						</div>
+					</div>
+				</div>
+				<div class="w-100 block-group" ng-switch-when="sell">
+					<div class="block">
+						<p>{{amount}} EUR are being transfered to</p>
+						<div class="send-to">
+							<strong>Receiver</strong> Name Surname <br />
+							<strong>IBAN</strong> EE691010010638748015<br />
+						</div>
+					</div>
+				</div>
+				<div ng-switch-default>
+
+				</div>
+			</div>
     	</div>
     	<div class="block">
     		

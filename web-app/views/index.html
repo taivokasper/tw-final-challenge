@@ -5,22 +5,22 @@
 			<div class="call-left block">&nbsp;</div>
 			<div class="call-right block">
 				<div class="box" ng-controller="CallToActionCtrl">
-					<h2>You invest</h2>
+
+					<h2>Every month you invest</h2>
 					<form class="ss">
-						<input class="invest-money" ng-model="monthlyInvestment" />per month for 5 years
+						<input class="invest-money" ng-model="monthlyInvestment" />for 5 years
 					</form>
-					<h3> and you could gain</h3>
-					<h1>{{calcResults}}€</h1>
-					<h3>with InvestUs</h3>
-					<form class="ss">
-						<button class="start-now" ng-click="startNow()">Invest now</button>
+					<h3> and gain</h3>
+					<h1>{{investUsCalcResults}}€</h1>
+					<form>
+						<button class="start-now" ng-click="startNow()">Start now</button>
 					</form>
+					You could save an average of {{calcResults}}€ vs your bank. <a href="/">+How?</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 <div class="main-wrap block-group">
 	<div class="reasons block">&nbsp;
 	</div>
@@ -36,4 +36,3 @@
 		</form>
 	</div>
 </div>
-

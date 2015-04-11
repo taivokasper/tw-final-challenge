@@ -28,14 +28,8 @@ class BootStrap {
         }
         JSON.registerObjectMarshaller(HistoricalQuote) { HistoricalQuote hq ->
             return [
-                    symbol  : hq.symbol,
                     date    : calendarToDate(hq.date),
-                    open    : hq.open,
-                    low     : hq.low,
-                    high    : hq.high,
-                    close   : hq.close,
-                    adjClose: hq.adjClose,
-                    volume  : hq.volume
+                    open    : hq.open
             ]
         }
     }

@@ -6,3 +6,6 @@ app.controller('IndexCtrl', function ($scope) {
 app.controller('InvestmentCtrl', function ($scope) {
 
 });
+app.controller('LoginCtrl', function ($scope) {
+
+});

@@ -14,5 +14,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/investment',
             templateUrl: 'views/investment.html',
             controller: 'InvestmentCtrl'
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: 'views/login.html',
+            controller: 'LoginCtrl'
         });
 });

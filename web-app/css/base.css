@@ -231,17 +231,11 @@ textarea {
   h3 {
     page-break-after: avoid; } }
 /***************************** MOBILE FIRST *****************************/
-.nav {
-  width: 20%;
-  height: 200px; }
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 
-.main {
-  width: 80%; }
-
-.item {
-  width: 50%; }
-
-/* 2 columns */
 .header .header-login button {
   padding: 10px 15px;
   margin: 20px auto;
@@ -254,26 +248,27 @@ textarea {
   cursor: pointer; }
   .header .header-login button:hover {
     background: #00ccff;
-    color: #00659a;
+    color: white;
     border: 1px solid #00659a; }
 
 .call-to-action {
   background: url(../images/landing_background.png);
-  height: 371px; }
+  height: 370px;
+  overflow: hidden; }
   .call-to-action .call-left {
     width: 60%; }
   .call-to-action .call-right {
     width: 40%;
-    position: relative; }
+    padding: 2em; }
     .call-to-action .call-right .box {
       background: #20bae1;
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
       border-radius: 10px;
-      width: 200px;
+      width: 100%;
+      max-width: 260px;
       padding: 2em;
-      margin-top: 2em;
-      margin-left: 6em; }
+      margin: 0em 2em 0em 0em; }
       .call-to-action .call-right .box h1, .call-to-action .call-right .box h2, .call-to-action .call-right .box h3 {
         margin: 0;
         padding: 0;
@@ -286,38 +281,118 @@ textarea {
       .call-to-action .call-right .box h1 {
         text-align: center; }
       .call-to-action .call-right .box form {
-        position: relative;
-        color: #00659a;
-        font-size: 1em;
-        font-family: "Lato", Helvetica, Arial, sans-serif;
-        font-weight: 300; }
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+        color: #00659a; }
         .call-to-action .call-right .box form input, .call-to-action .call-right .box form button {
-          margin: 0 auto;
           text-align: center;
-          padding: 10px 15px; }
-        .call-to-action .call-right .box form input.invest-money {
-          color: #00659a;
+          padding: 10px 15px;
+          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
           font-family: "Lato", Helvetica, Arial, sans-serif;
           font-weight: 300;
+          font-size: 1.5em;
+          height: auto;
+          margin: 0 !important;
+          outline: 0;
+          border: none;
+          width: 100%;
           -webkit-border-radius: 10px;
           -moz-border-radius: 10px;
-          border-radius: 10px;
-          background: white;
-          border: none;
-          outline: none; }
+          border-radius: 10px; }
+        .call-to-action .call-right .box form input.invest-money {
+          color: #00659a;
+          background-color: white; }
         .call-to-action .call-right .box form button.start-now {
-          padding: 10px 15px;
           color: white;
           background-color: #00ccff;
-          border: none;
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
-          border-radius: 10px;
           cursor: pointer; }
+    .call-to-action .call-right .footnote {
+      color: white;
+      font-size: 75%;
+      padding-left: 2em; }
 
 .landing-bottom {
   background: url(../images/landing_bottom.png);
   height: 1280px; }
+
+.log-in form {
+  max-width: 80%;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 10px; }
+.log-in h1 {
+  margin: 0 0 30px 0;
+  text-align: center; }
+.log-in input[type="text"],
+.log-in input[type="password"],
+.log-in input[type="date"],
+.log-in input[type="datetime"],
+.log-in input[type="email"],
+.log-in input[type="number"],
+.log-in input[type="search"],
+.log-in input[type="tel"],
+.log-in input[type="time"],
+.log-in input[type="url"],
+.log-in textarea,
+.log-in select {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px; }
+.log-in input[type="radio"],
+.log-in input[type="checkbox"] {
+  margin: 0 4px 8px 0; }
+.log-in select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px; }
+.log-in button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #00ccff;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #00659a;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  margin-bottom: 10px; }
+.log-in fieldset {
+  margin-bottom: 30px;
+  border: none; }
+.log-in legend {
+  font-size: 1.4em;
+  margin-bottom: 10px; }
+.log-in label {
+  display: block;
+  margin-bottom: 8px; }
+.log-in label.light {
+  font-weight: 300;
+  display: inline; }
+.log-in .number {
+  background-color: #00ccff;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 100%; }
 
 /***************************** TABLETS *****************************/
 @media (min-width: 40em) {
@@ -328,7 +403,7 @@ textarea {
 /***************************** DESKTOPS *****************************/
 @media (min-width: 60em) {
   .main-wrap {
-    width: 1280px;
+    max-width: 1280px;
     margin: 0 auto; }
 
   .header {

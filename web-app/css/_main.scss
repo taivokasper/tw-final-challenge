@@ -1,7 +1,9 @@
 /***************************** MOBILE FIRST *****************************/
-.nav { width: 20%; height: 200px; }
-.main { width: 80%; }
-.item { width: 50%; } /* 2 columns */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 
 .header {
@@ -19,7 +21,7 @@
 
 		    &:hover {
 				background: $logo-blue;
-				color: $dark-blue;
+				color: $white;
 				border: 1px solid $dark-blue;
 			}
 		}
@@ -28,24 +30,25 @@
 
 .call-to-action {
 	background: url(../images/landing_background.png);
-	height: 371px;
+	height: 370px;
+	overflow: hidden;
 
 	.call-left {
 		width: 60%;
 	}
 	.call-right {
 		width: 40%;
-		position: relative;
+		padding: 2em;
 
 		.box {
 			background: $other-blue;
 			-webkit-border-radius: 10px;
 			-moz-border-radius: 10px;
 			border-radius: 10px;
-			width: 200px;
+			width: 100%;
+			max-width: 260px;
 			padding: 2em;
-			margin-top: 2em;
-			margin-left: 6em;
+			margin: 0em 2em 0em 0em;
 			
 			h1,h2,h3{
 				margin:0;
@@ -64,41 +67,45 @@
 			}
 
 			form {
-				position: relative;
+				width: 100%;
+				margin: 0 auto;
+				padding: 0 20px;
 				color: $dark-blue;
-				font-size: 1em;
-				font-family: $font-lato;
-				font-weight: 300;
+
 
 				input, button{
-					margin: 0 auto;
 					text-align: center;
 					padding: 10px 15px;
+					box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+					font-family: $font-lato;
+					font-weight: 300;
+					font-size: 1.5em;
+					height: auto;
+					margin: 0 !important;
+					outline: 0;
+					border: none;
+					width: 100%;
+					-webkit-border-radius: 10px;
+					-moz-border-radius: 10px;
+					border-radius: 10px;
 				}
 				
 				input.invest-money {
 					color: $dark-blue;
-					font-family: $font-lato;
-					font-weight: 300;
-					-webkit-border-radius: 10px;
-					-moz-border-radius: 10px;
-					border-radius: 10px;
-					background: $white;
-				    border: none;
-				    outline: none;
+					background-color: $white;
 				}
 
 				button.start-now {
-					padding: 10px 15px;
 				    color: $white;
 				    background-color: $logo-blue;
-				    border: none;
-					-webkit-border-radius: 10px;
-					-moz-border-radius: 10px;
-					border-radius: 10px;
 				    cursor: pointer;
 				}
 			}
+		}
+		.footnote {
+			color: white;
+			font-size: 75%;
+			padding-left: 2em;
 		}
 	}
 }
@@ -106,6 +113,107 @@
 .landing-bottom {
 	background: url(../images/landing_bottom.png);
 	height: 1280px;
+}
+
+.log-in {
+	form {
+		max-width: 80%;
+		margin: 10px auto;
+		padding: 10px 20px;
+		background: #fff;
+		border-radius: 10px;
+	}
+
+	h1 {
+		margin: 0 0 30px 0;
+		text-align: center;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	textarea,
+	select {
+		background: rgba(255,255,255,0.1);
+		border: none;
+		font-size: 16px;
+		height: auto;
+		margin: 0;
+		outline: 0;
+		padding: 15px;
+		width: 100%;
+		background-color: #e8eeef;
+		color: #8a97a0;
+		box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+		margin-bottom: 30px;
+	}
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		margin: 0 4px 8px 0;
+	}
+
+	select {
+		padding: 6px;
+		height: 32px;
+		border-radius: 2px;
+	}
+
+	button {
+		padding: 19px 39px 18px 39px;
+		color: #FFF;
+		background-color: $logo-blue;
+		font-size: 18px;
+		text-align: center;
+		font-style: normal;
+		border-radius: 5px;
+		width: 100%;
+		border: 1px solid $dark-blue;
+		border-width: 1px 1px 3px;
+		box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+		margin-bottom: 10px;
+	}
+
+	fieldset {
+		margin-bottom: 30px;
+		border: none;
+	}
+
+	legend {
+		font-size: 1.4em;
+		margin-bottom: 10px;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 8px;
+	}
+
+	label.light {
+		font-weight: 300;
+		display: inline;
+	}
+
+	.number {
+		background-color: $logo-blue;
+		color: #fff;
+		height: 30px;
+		width: 30px;
+		display: inline-block;
+		font-size: 0.8em;
+		margin-right: 4px;
+		line-height: 30px;
+		text-align: center;
+		text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+		border-radius: 100%;
+	}
 }
 
 
@@ -120,7 +228,7 @@
 /***************************** DESKTOPS *****************************/
 @media (min-width: 60em) {
 	.main-wrap {
-		width: 1280px;
+		max-width: 1280px;
 		margin: 0 auto;
 	}
 	.header {

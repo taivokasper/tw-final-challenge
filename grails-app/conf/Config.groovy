@@ -88,9 +88,13 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        grails.dbconsole.enabled = true
+        grails.dbconsole.urlRoot = '/admin/dbconsole'
     }
     production {
         grails.logging.jul.usebridge = false
+        grails.dbconsole.enabled = true
+        grails.dbconsole.urlRoot = '/admin/dbconsole'
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
@@ -131,7 +135,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/images/**':                     ['permitAll'],
     '/lib/**':                        ['permitAll'],
     '/views/**':                      ['permitAll'],
-	'/favicon.ico':                   ['permitAll']
+	'/favicon.ico':                   ['permitAll'],
+    '/admin/**':                      ['permitAll']
 ]
 grails.plugin.springsecurity.rememberMe.persistent = false
 grails.plugin.springsecurity.rest.login.useJsonCredentials = true

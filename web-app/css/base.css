@@ -255,6 +255,8 @@ a:hover, a:active {
   position: relative; }
   .header .logo, .header .header-login {
     width: 50%; }
+  .header .logo {
+    padding-left: 1em; }
   .header .header-login {
     text-align: right;
     position: absolute;

@@ -348,39 +348,46 @@ a:hover, a:active {
         font-size: 1em; }
       .call-to-action .call-right .box h1 {
         text-align: center; }
-      .call-to-action .call-right .box form {
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 20px;
-        color: #00659a; }
-        .call-to-action .call-right .box form input, .call-to-action .call-right .box form button {
-          text-align: center;
-          padding: 10px 15px;
-          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-          font-family: "Lato", Helvetica, Arial, sans-serif;
-          font-weight: 300;
-          font-size: 1.5em;
-          height: auto;
-          margin: 0 !important;
-          outline: 0;
-          border: none;
-          width: 100%;
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
-          border-radius: 10px; }
-        .call-to-action .call-right .box form input.invest-money {
-          color: #00659a;
-          background-color: white; }
-        .call-to-action .call-right .box form button.start-now {
-          color: white;
-          background-color: #00ccff;
-          cursor: pointer;
-          border: 1px solid #00659a;
-          border-width: 1px 1px 3px;
-          box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset; }
     .call-to-action .call-right .footnote {
       color: white;
       font-size: 75%; }
+
+form.ss {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  color: #00659a; }
+  form.ss input, form.ss button {
+    text-align: center;
+    padding: 10px 15px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 1.5em;
+    height: auto;
+    margin: 0 !important;
+    outline: 0;
+    border: none;
+    width: 100%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px; }
+  form.ss input.invest-money {
+    color: #00659a;
+    background-color: white; }
+  form.ss button.start-now {
+    color: white;
+    background-color: #00ccff;
+    cursor: pointer;
+    border: 1px solid #00659a;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset; }
+
+.reasons {
+  background: url(../images/reasons.png);
+  background-position: center;
+  width: 100%;
+  height: 269px; }
 
 .landing-bottom {
   background: url(../images/landing_bottom.png);

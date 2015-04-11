@@ -6,14 +6,14 @@
 			<div class="call-right block">
 				<div class="box" ng-controller="CallToActionCtrl">
 					<h2>You invest</h2>
-					<form>
+					<form class="ss">
 						<input class="invest-money" ng-model="monthlyInvestment" />per month for 5 years
 					</form>
 					<h3> and you could gain</h3>
 					<h1>{{calcResults}}€</h1>
 					<h3>with InvestUs</h3>
-					<form>
-						<button class="start-now" ng-click="startNow()">Start now</button>
+					<form class="ss">
+						<button class="start-now" ng-click="startNow()">Invest now</button>
 					</form>
 				</div>
 			</div>
@@ -22,6 +22,18 @@
 </div>
 
 <div class="main-wrap block-group">
+	<div class="reasons block">&nbsp;
+	</div>
+</div>
+<div class="main-wrap block-group">
 	<div class="landing-bottom block">&nbsp;
 	</div>
 </div>
+<div class="main-wrap block-group">
+	<div class=" block" style="text-align: center; margin-top: 1em;">
+		<form class="ss">
+			<button class="start-now" style="width: 180px;" ng-click="startNow()">Invest now</button>
+		</form>
+	</div>
+</div>
+

@@ -260,6 +260,8 @@ a:hover, a:active {
     position: absolute;
     top: 50%;
     right: 10%; }
+    .header .header-login .sign-up-button {
+      padding-right: 1em; }
     .header .header-login button {
       padding: 10px 30px;
       color: #000;
@@ -275,6 +277,8 @@ a:hover, a:active {
         background: #00ccff;
         color: white;
         border: 1px solid #00659a; }
+    .header .header-login .log-in-link {
+      font-weight: 700; }
     .header .header-login .logged-in {
       color: #d1d1d1;
       font-size: 0.9em; }
@@ -344,7 +348,10 @@ a:hover, a:active {
         .call-to-action .call-right .box form button.start-now {
           color: white;
           background-color: #00ccff;
-          cursor: pointer; }
+          cursor: pointer;
+          border: 1px solid #00659a;
+          border-width: 1px 1px 3px;
+          box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset; }
     .call-to-action .call-right .footnote {
       color: white;
       font-size: 75%; }

@@ -1,4 +1,6 @@
-import app.User
+import app.auth.Role
+import app.auth.User
+import app.auth.UserRole
 import grails.converters.JSON
 import yahoofinance.histquotes.HistoricalQuote
 
@@ -11,12 +13,13 @@ class BootStrap {
     def init = { servletContext ->
         registerMarshallers()
 
-        if(User.count() == 0) {
-            new User(name: "Esimene", description: "The very first person", age: 10).save(failOnError: true)
-            new User(name: "Teine", description: "The very second person", age: 20).save(failOnError: true)
-            new User(name: "Kolmas", description: "The very third person", age: 30).save(failOnError: true)
-            new User(name: "Neljas", description: "The very fourth person", age: 40).save(failOnError: true)
-        }
+        User user = new User(username: "test", password: "test")
+        user.save()
+
+        Role roleUser = new Role(authority: "ROLE_USER")
+        roleUser.save()
+
+        new UserRole(user: user, role: roleUser).save()
     }
 
     private void registerMarshallers() {

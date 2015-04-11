@@ -9,6 +9,5 @@ class PollStockPricesJob {
 
     def execute() {
         statsService.updateCache()
-        log.info("Stock prices updated")
     }
 }

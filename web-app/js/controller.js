@@ -14,6 +14,38 @@ app.controller('IndexCtrl', function ($scope) {
 
 });
 
+app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
+    $scope.monthlyInvestment = 200;
+
+    $scope.calcResults = 0;
+
+    var calculateInvestmentUs = function(investment_per_month) {
+        var length = 5 * 12; //years * months
+        var sum = 0;
+        var interest = 101.049 / 100; // VTI yield 2014 12,59%, per month on average 1.049%
+        var transfer_fee_presentage = (100 - 1) / 100; // convert to %, money spent on transfer fee
+
+        var after_transfer_fee = (investment_per_month * transfer_fee_presentage)
+
+        for(var i = 0; i < length; i++){
+            sum = (sum + after_transfer_fee) * interest;
+        }
+        return sum - investment_per_month * length;
+    };
+
+    $scope.$watch('monthlyInvestment', function (newVal) {
+        $scope.calcResults = Math.round(calculateInvestmentUs(newVal));
+    });
+
+    $scope.startNow = function () {
+        if (UserService.isAuthencticated()) {
+            $state.go('investment');
+        } else {
+            $state.go('login');
+        }
+    };
+});
+
 app.controller('InvestmentCtrl', function ($scope) {
 
 });

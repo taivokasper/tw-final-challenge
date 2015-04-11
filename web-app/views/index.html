@@ -4,16 +4,16 @@
 		<div class="main-wrap call-to-action block-group">
 			<div class="call-left block">&nbsp;</div>
 			<div class="call-right block">
-				<div class="box">
+				<div class="box" ng-controller="CallToActionCtrl">
 					<h2>You invest</h2>
 					<form>
-						<input class="invest-money"  onfocus="this.placeholder = ''" onblur="this.placeholder = '100'"  />per month for 5 years
+						<input class="invest-money" ng-model="monthlyInvestment" />per month for 5 years
 					</form>
 					<h3> and you could gain</h3>
-					<h1>55€</h1>
+					<h1>{{calcResults}}€</h1>
 					<h3>with InvestUs</h3>
 					<form>
-						<a href="#/login"><button class="start-now">Start now</button></a>
+						<button class="start-now" ng-click="startNow()">Start now</button>
 					</form>
 				</div>
 			</div>

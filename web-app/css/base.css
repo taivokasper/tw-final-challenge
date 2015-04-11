@@ -500,6 +500,11 @@ a:hover, a:active {
     .main-investment .inv-box button.add-more-button:hover {
       background: #00659a;
       color: white; }
+.main-investment .send-to {
+  padding-left: 30%;
+  font-size: 75%;
+  color: #00659a;
+  text-align: left; }
 
 .footer-container {
   margin: 0 auto;

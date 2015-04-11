@@ -51,11 +51,45 @@ app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
         for(var i = 0; i < length; i++){
             sum = (sum + after_transfer_fee) * interest;
         }
-        return sum - investment_per_month * length;
+        return sum;
     };
 
+
+    calculateInvestmentSumLHVkasvu = function(investment_per_month){
+        var length = 5 * 12; //years * months
+        var sum = 0;
+        var interest = 101.049 / 100; // VTI yield 2014 12,59%, per month on average 1.049%
+        var every_mont_fee = 0.05 / 100; // convert to %
+        var every_month_min_fee = 1;
+
+        var transfer_fee_fix = 2;
+        var transfer_fee_presentage = 1 / 100 // convert to %, money spent on transfer fee
+        var transfer_fee_presentage_multiply = (100 - 1) / 100 // convert to %, money spent on transfer fee
+        var currency_exchange = (100 - 1.8) / 100 // convert to %, money lost on currency exchange
+
+        var after_transfer_fee = 0;
+        if(investment_per_month < (transfer_fee_fix / transfer_fee_presentage)){
+            after_transfer_fee = investment_per_month - transfer_fee_fix;
+        }else{
+            after_transfer_fee = (investment_per_month * transfer_fee_presentage_multiply);
+        }
+        var after_currency_exchange = (after_transfer_fee * currency_exchange);
+
+        for(var i = 0; i < length; i++){
+            sum = (sum + after_currency_exchange) * interest;
+            if (sum < (every_month_min_fee / every_mont_fee)){
+                sum -=  every_month_min_fee;
+            }else{
+                sum -= (sum * every_mont_fee)
+            }
+        }
+        return sum;
+    };
+
+
     $scope.$watch('monthlyInvestment', function (newVal) {
-        $scope.calcResults = Math.round(calculateInvestmentUs(newVal));
+        $scope.investUsCalcResults = Math.round(calculateInvestmentUs(newVal)) - (newVal * 12 * 5);
+        $scope.calcResults = Math.round(calculateInvestmentUs(newVal) - calculateInvestmentSumLHVkasvu(newVal));
     });
 
     $scope.startNow = function () {

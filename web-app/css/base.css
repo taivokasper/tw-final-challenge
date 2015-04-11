@@ -399,6 +399,7 @@ a:hover, a:active {
   text-align: center; }
 .log-in input[type="text"],
 .log-in input[type="password"],
+.log-in input[type="password_confirmation"],
 .log-in input[type="date"],
 .log-in input[type="datetime"],
 .log-in input[type="email"],

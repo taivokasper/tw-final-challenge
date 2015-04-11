@@ -24,5 +24,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/signup',
             templateUrl: 'views/signup.html',
             controller: 'SignupCtrl'
+        })
+        .state('about', {
+            url: '/about',
+            templateUrl: 'views/about.html',
+            controller: 'AboutCtrl'
         });
 });

@@ -12,3 +12,6 @@ app.controller('LoginCtrl', function ($scope) {
 app.controller('SignupCtrl', function ($scope) {
 
 });
+app.controller('AboutCtrl', function ($scope) {
+
+});

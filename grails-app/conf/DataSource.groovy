@@ -4,6 +4,7 @@ dataSource {
     driverClassName = "org.h2.Driver"
     username = "sa"
     password = ""
+    dialect = "app.ImprovedH2Dialect"
 }
 hibernate {
     cache.use_second_level_cache = true

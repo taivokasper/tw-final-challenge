@@ -125,13 +125,13 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'app.auth.UserR
 grails.plugin.springsecurity.authority.className = 'app.auth.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
-	'/index':                         ['permitAll'],
-	'/index.gsp':                     ['permitAll'],
-	'/assets/**':                     ['permitAll'],
-	'/**/js/**':                      ['permitAll'],
-	'/**/css/**':                     ['permitAll'],
-	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
+	'/index.html':                    ['permitAll'],
+	'/js/**':                         ['permitAll'],
+	'/css/**':                        ['permitAll'],
+	'/images/**':                     ['permitAll'],
+    '/lib/**':                        ['permitAll'],
+    '/views/**':                      ['permitAll'],
+	'/favicon.ico':                   ['permitAll']
 ]
 grails.plugin.springsecurity.rememberMe.persistent = false
 grails.plugin.springsecurity.rest.login.useJsonCredentials = true

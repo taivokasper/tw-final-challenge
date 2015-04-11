@@ -308,8 +308,10 @@ a:hover, a:active {
 		
 	}
 }
-.main-investment {
+.main.investment, .main-about {
 	width: 80%;
+}
+.main-investment {
 
 	.inv-box {
 		border: 1px solid $primary-light;

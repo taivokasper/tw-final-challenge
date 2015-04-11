@@ -459,46 +459,47 @@ a:hover, a:active {
         content: "\00BB";
         padding-right: 1em; }
 
-.main-investment {
+.main.investment, .main-about {
   width: 80%; }
-  .main-investment .inv-box {
+
+.main-investment .inv-box {
+  border: 1px solid #d1d1d1;
+  position: relative;
+  padding: 2em;
+  margin: 20px;
+  width: 100%;
+  font-size: 1.7em; }
+  .main-investment .inv-box h1 {
+    position: absolute;
+    line-height: 40px;
+    font-size: 1.5em;
+    top: -20px;
+    left: -5px;
+    margin: 0;
+    padding: 0 20px;
+    font-weight: 300;
+    background: white; }
+  .main-investment .inv-box .your-account {
+    color: #d1d1d1; }
+  .main-investment .inv-box .add-more-box {
+    padding-top: 2em; }
+  .main-investment .inv-box input.add-more-input, .main-investment .inv-box button.add-more-button {
     border: 1px solid #d1d1d1;
-    position: relative;
-    padding: 2em;
-    margin: 20px;
-    width: 100%;
-    font-size: 1.7em; }
-    .main-investment .inv-box h1 {
-      position: absolute;
-      line-height: 40px;
-      font-size: 1.5em;
-      top: -20px;
-      left: -5px;
-      margin: 0;
-      padding: 0 20px;
-      font-weight: 300;
-      background: white; }
-    .main-investment .inv-box .your-account {
-      color: #d1d1d1; }
-    .main-investment .inv-box .add-more-box {
-      padding-top: 2em; }
-    .main-investment .inv-box input.add-more-input, .main-investment .inv-box button.add-more-button {
-      border: 1px solid #d1d1d1;
-      outline: 0;
-      width: 150px;
-      padding: 5px 10px;
-      font-weight: 100;
-      text-align: center;
-      font-size: 0.9em; }
-    .main-investment .inv-box input.add-more-input {
-      background: white;
-      color: #d1d1d1; }
-    .main-investment .inv-box button.add-more-button {
-      background: #00ccff;
-      color: #00659a; }
-      .main-investment .inv-box button.add-more-button:hover {
-        background: #00659a;
-        color: white; }
+    outline: 0;
+    width: 150px;
+    padding: 5px 10px;
+    font-weight: 100;
+    text-align: center;
+    font-size: 0.9em; }
+  .main-investment .inv-box input.add-more-input {
+    background: white;
+    color: #d1d1d1; }
+  .main-investment .inv-box button.add-more-button {
+    background: #00ccff;
+    color: #00659a; }
+    .main-investment .inv-box button.add-more-button:hover {
+      background: #00659a;
+      color: white; }
 
 .footer-container {
   margin: 0 auto;

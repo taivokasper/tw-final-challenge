@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.directive('d3Bars', function($window, $timeout, d3Service) {
+app.directive('d3Bars', function ($window, $timeout, d3Service) {
         return {
             restrict: 'A',
             scope: {
@@ -30,8 +30,12 @@ app.directive('d3Bars', function($window, $timeout, d3Service) {
                     .orient("left");
 
                 var line = d3.svg.line()
-                    .x(function(d) { return x(d.date); })
-                    .y(function(d) { return y(d.close); });
+                    .x(function (d) {
+                        return x(d.date);
+                    })
+                    .y(function (d) {
+                        return y(d.close);
+                    });
 
                 var svg = d3.select("body").append("svg")
                     .attr("width", width + margin.left + margin.right)
@@ -39,14 +43,18 @@ app.directive('d3Bars', function($window, $timeout, d3Service) {
                     .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-                d3.tsv("data.tsv", function(error, data) {
-                    data.forEach(function(d) {
+                d3.tsv("data.tsv", function (error, data) {
+                    data.forEach(function (d) {
                         d.date = parseDate(d.date);
                         d.close = +d.close;
                     });
 
-                    x.domain(d3.extent(data, function(d) { return d.date; }));
-                    y.domain(d3.extent(data, function(d) { return d.close; }));
+                    x.domain(d3.extent(data, function (d) {
+                        return d.date;
+                    }));
+                    y.domain(d3.extent(data, function (d) {
+                        return d.close;
+                    }));
 
                     svg.append("g")
                         .attr("class", "x axis")
@@ -69,8 +77,8 @@ app.directive('d3Bars', function($window, $timeout, d3Service) {
                         .attr("d", line);
                 });
             },
-            link: function(scope, ele, attrs) {
-                d3Service.d3().then(function(d3) {
+            link: function (scope, ele, attrs) {
+                d3Service.d3().then(function (d3) {
 
                     var renderTimeout;
                     var margin = parseInt(attrs.margin) || 20,
@@ -81,32 +89,32 @@ app.directive('d3Bars', function($window, $timeout, d3Service) {
                         .append('svg')
                         .style('width', '100%');
 
-                    $window.onresize = function() {
+                    $window.onresize = function () {
                         scope.$apply();
                     };
 
-                    scope.$watch(function() {
+                    scope.$watch(function () {
                         return angular.element($window)[0].innerWidth;
-                    }, function() {
+                    }, function () {
                         scope.render(scope.data);
                     });
 
-                    scope.$watch('data', function(newData) {
+                    scope.$watch('data', function (newData) {
                         scope.render(newData);
                     }, true);
 
-                    scope.render = function(data) {
+                    scope.render = function (data) {
                         svg.selectAll('*').remove();
 
                         if (!data) return;
                         if (renderTimeout) clearTimeout(renderTimeout);
 
-                        renderTimeout = $timeout(function() {
+                        renderTimeout = $timeout(function () {
                             var width = d3.select(ele[0])[0][0].offsetWidth - margin,
                                 height = scope.data.length * (barHeight + barPadding),
                                 color = d3.scale.category20(),
                                 xScale = d3.scale.linear()
-                                    .domain([0, d3.max(data, function(d) {
+                                    .domain([0, d3.max(data, function (d) {
                                         return d.score;
                                     })])
                                     .range([0, width]);
@@ -117,21 +125,21 @@ app.directive('d3Bars', function($window, $timeout, d3Service) {
                                 .data(data)
                                 .enter()
                                 .append('rect')
-                                .on('click', function(d,i) {
+                                .on('click', function (d, i) {
                                     return scope.onClick({item: d});
                                 })
                                 .attr('height', barHeight)
                                 .attr('width', 140)
-                                .attr('x', Math.round(margin/2))
-                                .attr('y', function(d,i) {
+                                .attr('x', Math.round(margin / 2))
+                                .attr('y', function (d, i) {
                                     return i * (barHeight + barPadding);
                                 })
-                                .attr('fill', function(d) {
+                                .attr('fill', function (d) {
                                     return color(d.score);
                                 })
                                 .transition()
                                 .duration(1000)
-                                .attr('width', function(d) {
+                                .attr('width', function (d) {
                                     return xScale(d.score);
                                 });
                             svg.selectAll('text')
@@ -139,24 +147,25 @@ app.directive('d3Bars', function($window, $timeout, d3Service) {
                                 .enter()
                                 .append('text')
                                 .attr('fill', '#fff')
-                                .attr('y', function(d,i) {
+                                .attr('y', function (d, i) {
                                     return i * (barHeight + barPadding) + 15;
                                 })
                                 .attr('x', 15)
-                                .text(function(d) {
+                                .text(function (d) {
                                     return d.name + " (scored: " + d.score + ")";
                                 });
                         }, 200);
                     };
                 });
-            }}
+            }
+        }
     }
 );
 
-app.directive('showLogin', function($state) {
+app.directive('showLogin', function ($state) {
     return {
         restrict: 'C',
-        link: function(scope, element, attrs) {
+        link: function (scope, element, attrs) {
             var login = element.find('#login-holder');
             var loginError = element.find('#login-error');
             var main = element.find('#content');
@@ -166,14 +175,14 @@ app.directive('showLogin', function($state) {
             login.hide();
             loginError.hide();
 
-            scope.$on('event:auth-loginRequired', function() {
+            scope.$on('event:auth-loginRequired', function () {
                 console.log('showing login form');
                 $state.go("login");
             });
-            scope.$on('event:auth-loginFailed', function() {
+            scope.$on('event:auth-loginFailed', function () {
                 console.log('showing login error message');
             });
-            scope.$on('event:auth-loginConfirmed', function() {
+            scope.$on('event:auth-loginConfirmed', function () {
                 console.log('hiding login form');
                 $state.go("index");
             });

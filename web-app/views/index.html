@@ -1,41 +1,40 @@
-
 <div class="block-group">
-	<div class="block">
-		<div class="main-wrap call-to-action block-group">
-			<div class="call-left block">&nbsp;</div>
-			<div class="call-right block">
-				<div class="box" ng-controller="CallToActionCtrl">
+    <div class="block">
+        <div class="main-wrap call-to-action block-group">
+            <div class="call-left block">&nbsp;</div>
+            <div class="call-right block">
+                <div class="box" ng-controller="CallToActionCtrl">
+                    <h2>Invest monthly</h2>
 
-					<h2>Invest monthly</h2>
-					<form class="ss">
-						<input class="invest-money" ng-model="monthlyInvestment" />
-					</form>
-					for 5 years
-					<h3> and gain</h3>
-					<h1>{{investUsCalcResults}}€</h1>
-					<form class="ss">
-						<button class="start-now" ng-click="startNow()">Start now</button>
-					</form>
-					You could save an average of {{calcResults}}€ vs your bank. <a href="#/about" style="color:white;">+How?</a>
-				</div>
-			</div>
-		</div>
-	</div>
+                    <form class="ss">
+                        <input class="invest-money" ng-model="monthlyInvestment"/>
+                    </form>
+                    for 5 years
+                    <h3> and gain</h3>
+
+                    <h1>{{investUsCalcResults}}€</h1>
+
+                    <form class="ss">
+                        <button class="start-now" ng-click="startNow()">Start now</button>
+                    </form>
+                    You could save an average of {{calcResults}}€ vs your bank. <a href="#/about" style="color:white;">+How?</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="main-wrap block-group">
-	<div class="reasons block">&nbsp;
-	</div>
+    <div class="reasons block">&nbsp;
+    </div>
 </div>
 <div class="main-wrap block-group">
-	<div class="landing-bottom block">&nbsp;
-	</div>
+    <div class="landing-bottom block">&nbsp;
+    </div>
 </div>
 <div class="main-wrap block-group">
-	<div class=" block" style="text-align: center; margin-top: 1em;" ng-controller="CallToActionCtrl">
-		<form class="ss">
-			<button class="start-now" style="width: 180px;" ng-click="startNow()">Invest now</button>
-		</form>
-	</div>
+    <div class=" block" style="text-align: center; margin-top: 1em;" ng-controller="CallToActionCtrl">
+        <form class="ss">
+            <button class="start-now" style="width: 180px;" ng-click="startNow()">Invest now</button>
+        </form>
+    </div>
 </div>
-
-

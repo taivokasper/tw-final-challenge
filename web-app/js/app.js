@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ngResource', 'ui.router', 'http-auth-interceptor', 'nvd3ChartDirectives']);
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 

@@ -2,6 +2,7 @@ import app.auth.Role
 import app.auth.User
 import app.auth.UserRole
 import grails.converters.JSON
+import org.joda.time.LocalDate
 import yahoofinance.histquotes.HistoricalQuote
 
 class BootStrap {
@@ -13,7 +14,7 @@ class BootStrap {
     def init = { servletContext ->
         registerMarshallers()
 
-        User user = new User(username: "test@test.ee", password: "test")
+        User user = new User(username: "test@test.ee", email: "test@test.ee", password: "test", fullName: "Test User", dateOfBirth: LocalDate.parse("1991-02-01"))
         user.save()
 
         Role roleUser = new Role(authority: "ROLE_USER")

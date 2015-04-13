@@ -19,6 +19,12 @@ app.factory('HistoricalDataService', function ($resource) {
     });
 });
 
+app.factory('UserAddService', function ($resource) {
+    return $resource('/user/add', {}, {
+        addUser: {method: 'POST'}
+    });
+});
+
 app.factory('d3Service', function ($document, $window, $q, $rootScope) {
         var d = $q.defer(),
             d3service = {

@@ -1,11 +1,16 @@
 package app.auth
 
+import org.joda.time.LocalDate
+
 class User {
 
 	transient springSecurityService
 
 	String username
+	String email
 	String password
+	String fullName
+	LocalDate dateOfBirth
 	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
@@ -15,7 +20,10 @@ class User {
 
 	static constraints = {
 		username blank: false, unique: true
+		email blank: false, unique: true
 		password blank: false
+		fullName blank: false
+		dateOfBirth blank: false
 	}
 
 	static mapping = {

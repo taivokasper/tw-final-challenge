@@ -580,3 +580,9 @@ form.ss {
   .main-wrap {
     max-width: 1280px;
     margin: 0 auto; } }
+
+.error-msg {
+  text-align: center;
+  color: #D8000C;
+  margin: 10px;
+}

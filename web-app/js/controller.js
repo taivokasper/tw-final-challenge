@@ -80,10 +80,9 @@ app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
 
 
     $scope.$watch('monthlyInvestment', function (newVal, oldVal) {
-        if (newVal === oldVal) {
-            return;
+        if (newVal !== oldVal) {
+            console.log('User typed value:' + newVal);
         }
-        console.log('User typed value:' + newVal);
         $scope.investUsCalcResults = Math.round(calculateInvestmentUs(newVal)) - (newVal * 12 * 5);
         $scope.calcResults = Math.round(calculateInvestmentUs(newVal) - calculateInvestmentSumLHVkasvu(newVal));
     });
@@ -123,10 +122,46 @@ app.controller('InvestmentCtrl', function ($scope, UserInvestments, CreateInvest
     };
 });
 
-app.controller('SignupCtrl', function ($scope) {
+app.controller('SignupCtrl', function ($scope, UserAddService, $state) {
+    $scope.data = {};
+    $scope.notifications = {};
 
+    $scope.save = function () {
+        $scope.notifications = {};
+
+        if ($scope.signup.$invalid) {
+            $scope.notifications.msg = "The form has errors!";
+            return;
+        }
+
+        if ($scope.data.password != $scope.data.password2) {
+            $scope.notifications.msg = "Passwords do not match!";
+            return;
+        }
+
+        console.log("Creating new user");
+
+        UserAddService.addUser({
+            username: $scope.data.email,
+            fullName: $scope.data.fullName,
+            password: $scope.data.password,
+            dateOfBirth: $scope.data.dateOfBirth
+        }, function (result) {
+            console.log('User added' + result);
+            $state.go("sorry");
+        }, function (err) {
+            if (err.status === 400) {
+                $scope.notifications.msg = err.data;
+            }
+            console.error(err);
+        })
+    }
 });
 app.controller('AboutCtrl', function ($scope) {
+
+});
+
+app.controller('SorryCtrl', function ($scope) {
 
 });
 

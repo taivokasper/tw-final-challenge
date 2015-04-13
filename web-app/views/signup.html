@@ -1,30 +1,31 @@
 <div class="block-group">
     <div class="block">
         <div class="main-wrap log-in block-group">
-            <form action="index.html" method="post">
+            <form name="signup" ng-submit="save()">
 
                 <h1>Sign up</h1>
 
                 <fieldset>
                     <legend><span class="number">1</span>Your basic info</legend>
-                    <label for="name">Name:</label>
-                    <input ng-model='name' type="text" id="name" name="user_name">
+                    <label for="full_name">Full name:</label>
+                    <input ng-model='data.fullName' type="text" id="full_name" name="full_name" required>
 
                     <label for="mail">Email:</label>
-                    <input ng-model='name' type="email" id="mail" name="user_email">
+                    <input ng-model='data.email' type="email" id="mail" name="user_email" required>
 
                     <label for="password">Password:</label>
-                    <input ng-model='name' type="password" id="password" name="user_password">
+                    <input ng-model='data.password' type="password" id="password" name="user_password" required>
 
                     <label for="password_confirmation">Password confirmation:</label>
-                    <input ng-model='name' type="password_confirmation" id="password" name="user_password_confirmation">
+                    <input ng-model='data.password2' type="password" id="password_confirmation" name="user_password_confirmation" required>
 
-                    <label>Age:</label>
-                    <input ng-model='name' type="radio" id="over_18" value="over_18" name="user_age"><label for="over_18" class="light">18 or older</label><br>
-                    <input ng-model='name' type="radio" id="under_18" value="under_18" name="user_age"><label for="under_18" class="light">Under 18</label><br>
+                    <label for="date_of_birth">Date of birth:</label>
+                    <input ng-model='data.dateOfBirth' type="date" id="date_of_birth" name="date_of_birth" required>
                 </fieldset>
 
-                </fieldset>
+                <div ng-if="notifications.msg" class="error-msg">
+                    {{notifications.msg}}
+                </div>
                 <button type="submit">Sign Up</button>
             </form>
         </div>

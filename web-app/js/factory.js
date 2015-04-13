@@ -25,6 +25,14 @@ app.factory('UserAddService', function ($resource) {
     });
 });
 
+app.factory('AnonymousMetric', function ($resource) {
+    return $resource('/AnonymousUser/addUserActivity/:uuid', {uuid: '@uuid'});
+});
+
+app.factory('AnonymousUser', function ($resource) {
+    return $resource('/AnonymousUser/generateId');
+});
+
 app.factory('d3Service', function ($document, $window, $q, $rootScope) {
         var d = $q.defer(),
             d3service = {

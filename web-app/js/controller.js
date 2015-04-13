@@ -14,21 +14,20 @@ app.controller('IndexCtrl', function ($scope) {
 
 });
 
-app.controller('FooterCtrl', function ($scope, HistoricalDataService) {
-    $scope.data = [];
-
-    HistoricalDataService.query({}, function (result) {
-        result.forEach(function (d) {
-            $scope.data.push({
-                date: new Date(d.date),
-                score: d.open
-            });
-        });
-        console.log($scope.data);
-    });
+app.controller('FooterCtrl', function ($scope, $state, UserService, AnonymousUserService, HistoricalDataService) {
+    $scope.startNow = function () {
+        AnonymousUserService.addActivity("Call to action clicked in footer");
+        if (UserService.isAuthencticated()) {
+            $state.go('investment');
+        } else {
+            $state.go('signup');
+        }
+    };
 });
 
-app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
+app.controller('CallToActionCtrl', function ($scope, $state, UserService, AnonymousUserService) {
+    AnonymousUserService.addActivity("Showing call to action");
+
     $scope.monthlyInvestment = 200;
 
     $scope.calcResults = 0;
@@ -39,7 +38,7 @@ app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
         var interest = 101.049 / 100; // VTI yield 2014 12,59%, per month on average 1.049%
         var transfer_fee_presentage = (100 - 1) / 100; // convert to %, money spent on transfer fee
 
-        var after_transfer_fee = (investment_per_month * transfer_fee_presentage)
+        var after_transfer_fee = (investment_per_month * transfer_fee_presentage);
 
         for (var i = 0; i < length; i++) {
             sum = (sum + after_transfer_fee) * interest;
@@ -55,9 +54,9 @@ app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
         var every_month_min_fee = 1;
 
         var transfer_fee_fix = 2;
-        var transfer_fee_presentage = 1 / 100 // convert to %, money spent on transfer fee
-        var transfer_fee_presentage_multiply = (100 - 1) / 100 // convert to %, money spent on transfer fee
-        var currency_exchange = (100 - 1.8) / 100 // convert to %, money lost on currency exchange
+        var transfer_fee_presentage = 1 / 100; // convert to %, money spent on transfer fee
+        var transfer_fee_presentage_multiply = (100 - 1) / 100; // convert to %, money spent on transfer fee
+        var currency_exchange = (100 - 1.8) / 100; // convert to %, money lost on currency exchange
 
         var after_transfer_fee = 0;
         if (investment_per_month < (transfer_fee_fix / transfer_fee_presentage)) {
@@ -82,12 +81,14 @@ app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
     $scope.$watch('monthlyInvestment', function (newVal, oldVal) {
         if (newVal !== oldVal) {
             console.log('User typed value:' + newVal);
+            AnonymousUserService.addActivity("User typed " + newVal + " as the monthly investment");
         }
         $scope.investUsCalcResults = Math.round(calculateInvestmentUs(newVal)) - (newVal * 12 * 5);
         $scope.calcResults = Math.round(calculateInvestmentUs(newVal) - calculateInvestmentSumLHVkasvu(newVal));
     });
 
     $scope.startNow = function () {
+        AnonymousUserService.addActivity("Call to action clicked");
         if (UserService.isAuthencticated()) {
             $state.go('investment');
         } else {
@@ -96,8 +97,9 @@ app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
     };
 });
 
-app.controller('InvestmentCtrl', function ($scope, UserInvestments, CreateInvestment, UserService, $state) {
+app.controller('InvestmentCtrl', function ($scope, UserInvestments, CreateInvestment, UserService, $state, AnonymousUserService) {
     if (!UserService.isAuthencticated()) {
+        AnonymousUserService.addActivity("Unauthenticated user trying to access investments");
         $state.go('login');
     }
 
@@ -122,24 +124,30 @@ app.controller('InvestmentCtrl', function ($scope, UserInvestments, CreateInvest
     };
 });
 
-app.controller('SignupCtrl', function ($scope, UserAddService, $state) {
+app.controller('SignupCtrl', function ($scope, UserAddService, $state, AnonymousUserService) {
     $scope.data = {};
     $scope.notifications = {};
+
+    AnonymousUserService.addActivity("Viewing signup page");
+
 
     $scope.save = function () {
         $scope.notifications = {};
 
         if ($scope.signup.$invalid) {
             $scope.notifications.msg = "The form has errors!";
+            AnonymousUserService.addActivity("Signup form has errors: " + $scope.signup.$error);
             return;
         }
 
         if ($scope.data.password != $scope.data.password2) {
             $scope.notifications.msg = "Passwords do not match!";
+            AnonymousUserService.addActivity("Signup form passwords not matching");
             return;
         }
 
         console.log("Creating new user");
+        AnonymousUserService.addActivity("Creating new user");
 
         UserAddService.addUser({
             username: $scope.data.email,
@@ -148,28 +156,32 @@ app.controller('SignupCtrl', function ($scope, UserAddService, $state) {
             dateOfBirth: $scope.data.dateOfBirth
         }, function (result) {
             console.log('User added' + result);
+            AnonymousUserService.addActivity("User " + $scope.data.email + " successfully added");
             $state.go("sorry");
         }, function (err) {
             if (err.status === 400) {
                 $scope.notifications.msg = err.data;
             }
             console.error(err);
+            AnonymousUserService.addActivity("Signup failed with error for user " + $scope.data.email + ": " + err);
         })
     }
 });
-app.controller('AboutCtrl', function ($scope) {
-
+app.controller('AboutCtrl', function ($scope, AnonymousUserService) {
+    AnonymousUserService.addActivity("Viewing about page");
 });
 
-app.controller('SorryCtrl', function ($scope) {
-
+app.controller('SorryCtrl', function ($scope, AnonymousUserService) {
+    AnonymousUserService.addActivity("Viewing sorry page");
 });
 
-app.controller('LoginCtrl', function ($rootScope, $scope, $http, authService) {
+app.controller('LoginCtrl', function ($rootScope, $scope, $http, authService, AnonymousUserService) {
         console.log('loginController called');
+        AnonymousUserService.addActivity("Viewing login page");
 
         $scope.logIn = function () {
             console.log('logIn called');
+            AnonymousUserService.addActivity("Logging in as user " + $scope.authData.username);
 
             $http.post('/auth/login', {username: $scope.authData.username, password: $scope.authData.password},
                 getAuthenticateHttpConfig).
@@ -186,6 +198,7 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, authService) {
                     });
                 }).
                 error(function (data) {
+                    AnonymousUserService.addActivity("Login for user " + $scope.authData.username + " failed with message: " + data);
                     console.log('login error: ' + data);
                     $rootScope.$broadcast('event:auth-loginFailed', data);
                 });
@@ -193,19 +206,22 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, authService) {
     }
 );
 
-app.controller('logoutCtrl', function ($scope, $http, $location) {
+app.controller('logoutCtrl', function ($scope, $http, $location, UserService, AnonymousUserService) {
         console.log('logoutController called');
 
         $scope.logOut = function () {
             console.log('logOut called');
+            AnonymousUserService.addActivity("Logging out user " + UserService.getAuthenticatedUser());
 
             $http.post('/auth/logout', {}, getHttpConfig()).
                 success(function () {
                     console.log('logout success');
+                    AnonymousUserService.addActivity("Logout success");
                     localStorage.clear();
                     $location.path("/")
                 }).
                 error(function (data) {
+                    AnonymousUserService.addActivity("Logout error " + data);
                     console.log('logout error: ' + data);
                 });
         }

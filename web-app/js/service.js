@@ -6,6 +6,6 @@ app.service('UserService', function () {
     };
 
     this.isAuthencticated = function () {
-        return !!getLocalToken();
+        return getLocalToken() !== undefined;
     };
 });

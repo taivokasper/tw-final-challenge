@@ -47,7 +47,6 @@ app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
         return sum;
     };
 
-
     var calculateInvestmentSumLHVkasvu = function (investment_per_month) {
         var length = 5 * 12; //years * months
         var sum = 0;
@@ -80,7 +79,11 @@ app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
     };
 
 
-    $scope.$watch('monthlyInvestment', function (newVal) {
+    $scope.$watch('monthlyInvestment', function (newVal, oldVal) {
+        if (newVal === oldVal) {
+            return;
+        }
+        console.log('User typed value:' + newVal);
         $scope.investUsCalcResults = Math.round(calculateInvestmentUs(newVal)) - (newVal * 12 * 5);
         $scope.calcResults = Math.round(calculateInvestmentUs(newVal) - calculateInvestmentSumLHVkasvu(newVal));
     });
@@ -89,12 +92,16 @@ app.controller('CallToActionCtrl', function ($scope, $state, UserService) {
         if (UserService.isAuthencticated()) {
             $state.go('investment');
         } else {
-            $state.go('login');
+            $state.go('signup');
         }
     };
 });
 
-app.controller('InvestmentCtrl', function ($scope, UserInvestments, CreateInvestment, $window) {
+app.controller('InvestmentCtrl', function ($scope, UserInvestments, CreateInvestment, UserService, $state) {
+    if (!UserService.isAuthencticated()) {
+        $state.go('login');
+    }
+
     $scope.investedSum = UserInvestments.get();
 
     $scope.amount = 0;

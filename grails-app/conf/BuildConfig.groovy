@@ -54,6 +54,7 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+        runtime 'postgresql:postgresql:8.4-702.jdbc3'
         runtime "com.yahoofinance-api:YahooFinanceAPI:1.3.0"
         runtime "joda-time:joda-time:2.7"
     }

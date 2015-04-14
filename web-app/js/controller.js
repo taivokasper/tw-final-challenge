@@ -1,12 +1,20 @@
 var app = angular.module('app');
 
-app.controller('RootCtrl', function ($scope, UserService) {
+app.controller('RootCtrl', function ($scope, $state, UserService) {
     $scope.isAuthencticated = function () {
         return !!getLocalToken();
     };
 
     $scope.getUser = function () {
-        return UserService.getAuthenticatedUser();
+        return UserService.getAuthUser();
+    };
+
+    $scope.logOut = function () {
+        localStorage.removeItem("username");
+        localStorage.removeItem("user");
+        localStorage.removeItem("authToken");
+
+        $state.go($state.current.name, $state.params, { reload: true });
     };
 });
 
@@ -97,28 +105,28 @@ app.controller('CallToActionCtrl', function ($scope, $state, UserService, Anonym
     };
 });
 
-app.controller('InvestmentCtrl', function ($scope, UserInvestments, CreateInvestment, UserService, $state, AnonymousUserService) {
+app.controller('InvestmentCtrl', function ($scope, UserService, UserInvestments, CreateInvestment, UserService, $state, AnonymousUserService) {
     if (!UserService.isAuthencticated()) {
         AnonymousUserService.addActivity("Unauthenticated user trying to access investments");
         $state.go('login');
     }
 
-    $scope.investedSum = UserInvestments.get();
+    $scope.investedSum = UserInvestments.get({userId: UserService.getAuthUser().id});
 
     $scope.amount = 0;
 
     $scope.state = 'none';
 
     $scope.showInvest = function () {
-        CreateInvestment.get({amount: $scope.amount}, function () {
-            $scope.investedSum = UserInvestments.get();
+        CreateInvestment.get({username: UserService.getAuthUser().username, amount: $scope.amount}, function () {
+            $scope.investedSum = UserInvestments.get({userId: UserService.getAuthUser().id});
         });
         $scope.state = 'invest'
     };
 
     $scope.showSell = function () {
-        CreateInvestment.get({amount: $scope.amount * -1}, function () {
-            $scope.investedSum = UserInvestments.get();
+        CreateInvestment.get({username: UserService.getAuthUser().username, amount: $scope.amount * -1}, function () {
+            $scope.investedSum = UserInvestments.get({userId: UserService.getAuthUser().id});
         });
         $scope.state = 'sell'
     };
@@ -175,7 +183,7 @@ app.controller('SorryCtrl', function ($scope, AnonymousUserService) {
     AnonymousUserService.addActivity("Viewing sorry page");
 });
 
-app.controller('LoginCtrl', function ($rootScope, $scope, $http, authService, AnonymousUserService) {
+app.controller('LoginCtrl', function ($rootScope, $scope, $http, authService, AnonymousUserService, User) {
         console.log('loginController called');
         AnonymousUserService.addActivity("Viewing login page");
 
@@ -189,6 +197,9 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, authService, An
                     console.log('authentication token: ' + data.access_token);
                     localStorage["authToken"] = data.access_token;
                     localStorage["username"] = data.username;
+                    User.get({username: data.username}, function (data) {
+                        localStorage["user"] = angular.toJson(data);
+                    });
                     authService.loginConfirmed({}, function (config) {
                         if (!config.headers["X-Auth-Token"]) {
                             console.log('X-Auth-Token not on original request; adding it');

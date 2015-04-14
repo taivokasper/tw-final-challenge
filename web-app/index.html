@@ -70,9 +70,9 @@
             </span>
 
             <div ng-switch-default class="logged-in">
-                Logged in as <a href="#" class="profile">{{getUser()}}
+                Logged in as <a href="#" class="profile">{{getUser().fullName}}
                 <ul>
-                    <li>Log out</li>
+                    <li ng-click="logOut()">Log out</li>
                 </ul>
             </a>
             </div>

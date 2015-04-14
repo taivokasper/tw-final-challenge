@@ -26,4 +26,8 @@ class UserController {
             }
         }
     }
+
+    def getUserByUsername() {
+        render userService.userByUsername(request.getParameter("username")) as JSON
+    }
 }

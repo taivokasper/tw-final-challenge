@@ -8,6 +8,10 @@ app.service('UserService', function () {
     this.isAuthencticated = function () {
         return getLocalToken() !== undefined;
     };
+
+    this.getAuthUser = function () {
+        return angular.fromJson(localStorage["user"]);
+    }
 });
 
 app.service('AnonymousUserService', function (AnonymousUser, AnonymousMetric) {

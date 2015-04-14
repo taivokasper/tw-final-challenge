@@ -9,4 +9,8 @@ class UserService {
     def addNewUser(User user) {
         user.save(flush: true, failOnError: true)
     }
+
+    def userByUsername(String username) {
+        User.findByUsername(username)
+    }
 }

@@ -8,7 +8,7 @@ class InvestmentsController {
     def index() {
         BigInteger sum = BigInteger.ZERO
         def userInvestments = Investment.findAllByUsernameAndInvestedDateLessThanEquals(
-                User.findById(params.long("id")).username, new Date())
+                User.findById(params.long("userId")).username, new Date())
         userInvestments.each {investment ->
             sum = investment.amount.add(sum)
         }

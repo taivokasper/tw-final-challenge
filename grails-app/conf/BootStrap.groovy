@@ -17,12 +17,17 @@ class BootStrap {
     }
 
     private void addTestUser() {
-        User user = new User(username: "test@test.ee", email: "test@test.ee", password: "test", fullName: "Test User", dateOfBirth: LocalDate.parse("1991-02-01"))
-        if (User.findByEmail("test@test.ee") != null) {
-            user.save()
+        def testUserEmail = "test@test.ee"
+        if (User.findByEmail(testUserEmail) == null) {
+            User user = new User(
+                    username: testUserEmail,
+                    email: testUserEmail,
+                    password: "test",
+                    fullName: "Test User",
+                    dateOfBirth: LocalDate.parse("1991-02-01")
+            ).save()
 
-            Role roleUser = new Role(authority: "ROLE_USER")
-            roleUser.save()
+            Role roleUser = new Role(authority: "ROLE_USER").save()
 
             new UserRole(user: user, role: roleUser).save()
         }

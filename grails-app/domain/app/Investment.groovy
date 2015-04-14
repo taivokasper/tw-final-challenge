@@ -3,10 +3,10 @@ package app
 class Investment {
 
     static constraints = {
-        user blank: false
+        username blank: false
     }
 
-    String user
+    String username
     Date investedDate = new Date()
     BigDecimal amount = BigDecimal.ZERO
 }

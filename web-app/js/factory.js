@@ -10,7 +10,7 @@ app.factory('UserInvestments', function ($resource) {
 });
 
 app.factory('CreateInvestment', function ($resource) {
-    return $resource('/investments/create/1?user=test%40test%2Eee&amount=:amount', {amount: '@amount'});
+    return $resource('/investments/create/1?username=test%40test%2Eee&amount=:amount', {amount: '@amount'});
 });
 
 app.factory('HistoricalDataService', function ($resource) {

@@ -1,6 +1,6 @@
 package app
 
 class UserInvestments {
-    String user
+    String username
     BigDecimal sum
 }
